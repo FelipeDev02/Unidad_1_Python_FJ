@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard gadjets</title>
+</head>
+<body>
+    <h1>Listado de sensores y gadjets</h1>
+    <h3>Consumo maximo permitido: {{consumo_maximo}}</h3>
+    {% for d in dispositivos %}
+        {% if d.consumo <= consumo_maximo %}
+            <p style="color: green;">Gadget: {{ d.nombre }} - Consumo: {{ d.consumo }}</p>
+        {% else %}
+            <p style="color: red;">Gadget: {{ d.nombre }} - Consumo: {{ d.consumo }}</p>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
