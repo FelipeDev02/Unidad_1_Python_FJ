@@ -40,6 +40,6 @@ class Alerta(models.Model):
     fecha_hora = models.DateTimeField(auto_now_add=True)
     consumo_detectado = models.FloatField(help_text="Consumo detectado")
 
-    
 
+#modelos listos
 
