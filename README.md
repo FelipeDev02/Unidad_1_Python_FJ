@@ -26,5 +26,5 @@ from dispositivos.models import Dispositivo => importando el modelo
 Dispositivo.objects.create(nombre='Sensor Temp', consumo=50, estado=True) => creando un objeto
 Dispositivo.objects.all() => Mostrando objetos creados desde Dispositivo.
 
-
-
+superuser = admin
+psswd = admin123
