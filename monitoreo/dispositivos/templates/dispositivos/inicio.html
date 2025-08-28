@@ -6,9 +6,14 @@
     <title>Bienvenidos mamañemas</title>
 </head>
 <body>
-    <h1>Hola {{nombre}} mi compa</h1>
-    {% for p in productos %}
-        <p>Producto: {{p.nombre}} - Valor {{p.valor}}</p>
-    {% endfor %}
+    <h1>mostrando relaciones con join</h1>
+    <ul>
+        {% for d in dispositivos %}
+        <li>{{d.nombre}} - {{d.categoria}} {{d.categoria.estado }}</li>
+        ir a <a href="{% url 'dispositivo' d.id %}">detalle</a>
+        {% empty %}
+        <li>No hay dispositivos</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

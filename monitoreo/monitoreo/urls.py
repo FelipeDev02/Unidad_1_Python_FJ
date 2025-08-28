@@ -19,9 +19,11 @@ from django.urls import path
 
 from dispositivos.views import inicio
 from dispositivos.views import panel_dispositivos
+from dispositivos.views import dispositivo, inicio
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',inicio),
-    path('panel/',panel_dispositivos)
+    path('',inicio, name = "inicio"),
+    path('dispositivos/', inicio, name = "dispositivos"),
+    path('dispositivos/<int:dispositivo_id>', dispositivo, name = "dispositivo")
 ]

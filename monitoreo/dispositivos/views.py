@@ -1,15 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Dispositivo
 
 
 def inicio(request):
-    contexto = {"nombre" : "developer Felipe "}
-    productos = [
-        {"nombre": "Sensor 1", "valor": 100},
-        {"nombre": "Sensor 2", "valor": 200},
-        {"nombre": "Sensor 3", "valor": 300}
-    ]
-    return render(request,"dispositivos/inicio.html", {"contexto": contexto, "productos": productos})
+    dispositivos = Dispositivo.objects.select_related("categoria") #join
+    
+    return render(request, "dispositivos/inicio.html", {"dispositivos": dispositivos})
+
+def dispositivo(request, dispositivo_id):
+    dispositivo = Dispositivo.objects.get(id=dispositivo_id)
+    return render(request, "dispositivos/dispositivo.html", {"d": dispositivo})
 
 def panel_dispositivos(request):
     dispositivos = [
