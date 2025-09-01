@@ -11,6 +11,8 @@
         {% for d in dispositivos %}
         <li>{{d.nombre}} - {{d.categoria}} {{d.categoria.estado }}</li>
         ir a <a href="{% url 'dispositivo' d.id %}">detalle</a>
+        <a href="{% url 'editar_dispositivo' d.id %}">editar</a>
+        <a href="{% url 'eliminar_dispositivo' d.id %}">eliminar</a>
         {% empty %}
         <li>No hay dispositivos</li>
         {% endfor %}
